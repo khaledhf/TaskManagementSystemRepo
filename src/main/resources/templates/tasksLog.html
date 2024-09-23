@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Task Log Changes | Task Management</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="title">
+        Task Log Changes
+    </div>
+    <div class="content">
+        <table>
+            <thead>
+            <tr>
+                <th>Task ID</th>
+                <th>Previous Status</th>
+                <th>New Status</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="log : ${taskLogs}">
+                <td th:text="${log.taskId}">123</td>
+                <td th:text="${log.previousStatus}">Open</td>
+                <td th:text="${log.newStatus}">Completed</td>
+                <td th:text="${log.updatedAt}">2024-09-21</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

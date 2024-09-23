@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  mysql:
+    image: khaledhf/taskmanagement-mysql
+    ports:
+      - "3307:3307"
+  taskmanagement:
+    image: khaledhf/taskmanagementsystem:latest
+
+    ports:
+      - "9222:9222"
+    depends_on:
+      - mysql

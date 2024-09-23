@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Change Task Status | Task Management</title>
+    <link rel="stylesheet" href="/styles.css">
+
+</head>
+<body>
+<div class="wrapper">
+    <div class="title">
+        Change Task Status
+    </div>
+    <form th:action="@{/tasks/status}" method="post">
+        <div class="field">
+            <input type="text" name="taskId" required>
+            <label>Task ID</label>
+        </div>
+                <div class="field">
+                    <select name="status">
+                        <option value="STARTED">STARTED</option>
+                        <option value="IN_PROGRESS">In Progress</option>
+                        <option value="DONE">DONE</option>
+                        <option value="PENDING">PENDING</option>
+                        <option value="CANCELED">CANCELED</option>
+                    </select>
+        <div class="field">
+            <input type="submit" value="Update Status">
+        </div>
+    </form>
+</div>
+</body>
+</html>

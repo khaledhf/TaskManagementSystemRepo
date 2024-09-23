@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Task Dashboard | Task Management</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="title">
+        Task Dashboard
+    </div>
+
+    <!-- Table of Tasks -->
+    <table>
+        <thead>
+        <tr>
+            <th>Task ID</th>
+            <th>Task Name</th>
+            <th>Description</th>
+            <th>Current Status</th>
+            <th>Change Status</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task : ${tasks}">
+            <td th:text="${task.id}">1</td>
+            <td th:text="${task.name}">Task Name</td>
+            <td th:text="${task.description}">Description of the task</td>
+            <td th:text="${task.status}">In Progress</td>
+
+            <td>
+                <form th:action="@{/tasks/update}" method="post">
+                    <select name="status" th:value="${task.status}">
+                        <option value="Not Started">Not Started</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                    <input type="hidden" name="taskId" th:value="${task.id}">
+
+                    <button type="submit">Update</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="add-task-link">
+        <a href="/tasks/new">Add New Task</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Modify Task | Task Management</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="title">
+        Modify Task
+    </div>
+    <form th:action="@{/tasks/modify}" method="post">
+        <div class="field">
+            <input type="text" name="taskId" required>
+            <label>Task ID</label>
+        </div>
+        <div class="field">
+            <textarea name="taskDescription" required></textarea>
+            <label>Updated Task Description</label>
+        </div>
+        <div class="field">
+            <input type="submit" value="Modify Task">
+        </div>
+    </form>
+</div>
+</body>
+</html>

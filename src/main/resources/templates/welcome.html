@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .options button {
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            margin-top: -10px;
+            font-size: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 25px;
+            background: linear-gradient(-135deg, #c850c0, #4158d0);
+            transition: all 0.3s ease;
+        }
+
+        .options button:active {
+            transform: scale(0.95);
+        }
+
+        .options button:hover {
+            background: linear-gradient(-135deg, #4158d0, #c850c0);
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="title">Welcome to Task Management</div>
+    <div class="options">
+
+        <form action="/tasks/new" method="get">
+            <button type="submit">Add New Task</button>
+        </form>
+
+        <form action="/tasks/status" method="get">
+            <button type="submit">Change Status</button>
+        </form>
+        <form action="/log" method="get">
+            <button type="submit">View Task Logs</button>
+        </form>
+
+        <form action="/login" method="get">
+            <button type="submit">Logout</button>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>
