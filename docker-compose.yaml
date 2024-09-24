@@ -1,13 +1,16 @@
 version: '3.8'
-services:
-  mysql:
-    image: khaledhf/taskmanagement-mysql
-    ports:
-      - "3307:3307"
-  taskmanagement:
-    image: khaledhf/taskmanagementsystem:latest
 
+services:
+  taskmanagement_db:
+    image: khaledhf/task-db:latest
     ports:
-      - "9222:9222"
+      - "3300:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "P@ssw0rd"
+      MYSQL_DATABASE: "taskmanagement"
+  taskmanagement_app:
+    image: khaledhf/taskmanagement-main:latest
+    ports:
+      - "2032:2032"
     depends_on:
-      - mysql
+      - taskmanagement_db
