@@ -1,7 +1,5 @@
-FROM tomcat:9.0
+FROM openjdk:21
+EXPOSE 2032
+COPY target/TaskManagementSystem.jar TaskManagementSystem.jar
+CMD ["java","-jar","TaskManagementSystem.jar"]
 
-RUN rm -rf /usr/local/tomcat/webapps/ROOT
-
-COPY target/TaskManagementSystem.war /usr/local/tomcat/webapps/TaskManagementSystem.war
-
-EXPOSE 8080
