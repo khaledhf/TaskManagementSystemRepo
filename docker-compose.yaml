@@ -11,6 +11,6 @@ services:
   taskmanagement_app:
     image: khaledhf/taskmanagement-main:latest
     ports:
-      - "2032:2032"
+      - "9222:9222"
     depends_on:
       - taskmanagement_db
